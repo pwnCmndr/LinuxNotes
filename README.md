@@ -8,9 +8,13 @@
 #
 ### Find
 When using find without su, "permission Denied"
+
 `$ find / -type f -name firefox`
+
 with sudo goes in deep within every account associated directory,
+
 `$ sudo find / -type f -name firefox`
+
 as 
 
 1. search started form "/" but not limited to
@@ -37,3 +41,21 @@ different forms: * . , ? and [ ] .
 ```
 $ find ~/ -type f -name firefox*
 ```
+#
+### Whereis, locate & which
+
+`whereis` can search binary files 
+
+`whereis python3`
+
+`locate` gives overwhelming results 
+`updatedb` command updates locate results
+
+
+`locate python3`
+
+The `which` command is simply for finding path for a specific path variable of a binary in linux
+
+`which python3`
+
+
