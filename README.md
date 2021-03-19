@@ -4,7 +4,8 @@
    -  [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
    -  [1.2 Whereis, locate & which](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#whereis-locate--which)
    -  [1.3 Grep](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#grep)
-   -  [1.4 Wild Cards]
+   -  [1.4 Wild Cards](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#wild-cards)
+   -  [1.5 Finding commands with man -k]
 
 
 #
@@ -100,7 +101,7 @@ so any search for `?at` would find `hat, cat, and bat` but not what, because at 
 The `[ ]` wildcard is used to match the characters that appear inside the square brackets. 
 For example, 
 Any search for `[c,b]at` would match `cat and bat` but not hat or what. 
-## Among the most widely used wildcards
+#### Among the most widely used wildcards
 is the asterisk `(* )`, which matches any character(s) of any length,
 from none to an unlimited number of characters. A search for ` *at` , for
 example, would find `cat, hat, what, and bat`.
@@ -120,4 +121,38 @@ hat
 what
 mode@debian:~/testfolder$ 
 ```
+#
+### man -k
 
+To find information in man pages, you can search the `mandb` database by using
+`apropos or man -k`. If the database is current, getting access to the information you need is easy.
+
+When using `man -k` to find specific information from the man pages, you’ll
+sometimes get a load of information. If that happens, it might help to filter down the results a bit by using the `grep` command.
+
+Man pages are categorized in different sections. The most relevant sections for system administrators are as follows:
+```
+ 1: Executable programs or shell commands
+
+ 5: File formats and conventions
+
+ 8: System administration commands
+``` 
+
+**Updating mandb**
+ `#mandb`
+ 
+ ```
+ mode@debian:~/testfolder$ man -k admin
+brctl (8)            - ethernet bridge administration
+gpasswd (1)          - administer /etc/group and /etc/gshadow
+intro (8)            - introduction to administration and privileged commands
+ip6tables (8)        - administration tool for IPv4/IPv6 packet filtering and...
+iptables (8)         - administration tool for IPv4/IPv6 packet filtering and...
+lpadmin (8)          - configure cups printers and classes
+neo4j-admin (1)      - Neo4j administration
+net (8)              - Tool for administration of Samba and remote CIFS servers.
+netkey-tool (1)      - administrative utility for Netkey E4 cards
+samba-tool (8)       - Main Samba administration tool.
+virt-admin (1)       - daemon administration interface
+```
