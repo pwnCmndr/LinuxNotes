@@ -2,7 +2,8 @@
 
 - ### 1. FINDING STUFF
    -  [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
-   -  1.2 Whereis, locate & which
+   -  [1.2 Whereis, locate & which](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#whereis-locate--which)
+   -  [1.3](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#grep)
 
 
 #
@@ -58,4 +59,17 @@ The `which` command is simply for finding path for a specific path variable of 
 
 `which python3`
 
+#
+### Grep
+
+Very often when using the command line, you’ll want to search for a particular
+keyword. For this, you can use the grep command as a filter to search for keywords.
+
+
+`$ ps aux`  // shows all running processes , but to get a specific process we can use grep 
+e.g.
+
+`$ ps aux | grep firefox-bin` 
+
+`$cat /etc/snort/snort.conf | grep output` // filtering out the lines containing `output` word
 
