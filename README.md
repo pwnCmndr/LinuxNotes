@@ -1,7 +1,11 @@
 # LinuxNotes
 
-# 1. FINDING STUFF
+### 1. FINDING STUFF
+#### 1.1 Find
+#### 1.2 Whereis, locate & which
 
+
+#
 ### Find
 When using find without su, "permission Denied"
 `$ find / -type f -name firefox`
