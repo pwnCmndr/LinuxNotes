@@ -5,7 +5,7 @@
    -  [1.2 Whereis, locate & which](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#whereis-locate--which)
    -  [1.3 Grep](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#grep)
    -  [1.4 Wild Cards](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#wild-cards)
-   -  [1.5 Finding commands with man -k]
+   -  [1.5 Finding commands with man -k](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#man--k)
 
 
 #
