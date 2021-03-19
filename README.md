@@ -1,8 +1,8 @@
 # LinuxNotes
 
 - ### 1. FINDING STUFF
-   - #### [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
-   - #### 1.2 Whereis, locate & which
+   -  [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
+   -  1.2 Whereis, locate & which
 
 
 #
