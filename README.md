@@ -162,3 +162,98 @@ virt-admin (1)       - daemon administration interface
 
 ### head, tail & nl
 
+```bash
+mode@debian:/$ ls -la
+total 76
+drwxr-xr-x    1 root root  258 Mar 20 11:58 .
+drwxr-xr-x    1 root root  258 Mar 20 11:58 ..
+...........
+drwxr-xr-x    1 root root   98 Oct 22 09:49 var
+lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz -> boot/vmlinuz-4.19.0-14-amd64
+lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz.old -> boot/vmlinuz-4.19.0-13-amd64
+
+```
+
+`#head -5 file` 
+
+> take 5 lines from the top  
+
+```bash
+mode@debian:/$ ls -la | head -5 
+total 76
+drwxr-xr-x    1 root root  258 Mar 20 11:58 .
+drwxr-xr-x    1 root root  258 Mar 20 11:58 ..
+lrwxrwxrwx    1 root root    7 Oct 19 22:53 bin -> usr/bin
+drwxr-xr-x    1 root root  514 Feb 26 13:14 boot
+
+```
+
+`#tail -5 file` 
+
+> take last 5 lines from the bottom
+
+```sh
+mode@debian:/$ ls -la > /home/mode/rootls
+mode@debian:/$ cd /home/mode
+mode@debian:~$ tail -5 rootls
+drwxrwxrwt    1 root root 3740 Mar 20 15:54 tmp
+drwxr-xr-x    1 root root  170 Jan 14 17:24 usr
+drwxr-xr-x    1 root root   98 Oct 22 09:49 var
+lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz -> boot/vmlinuz-4.19.0-14-amd64
+lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz.old -> boot/vmlinuz-4.19.0-13-amd64
+```
+
+`#nl file` 
+
+> number the lines of the file
+
+```sh
+mode@debian:~$ nl rootls
+     1	total 76
+     2	drwxr-xr-x    1 root root  258 Mar 20 11:58 .
+     3	drwxr-xr-x    1 root root  258 Mar 20 11:58 ..
+     .......
+    29	lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz -> boot/vmlinuz-4.19.0-14-amd64
+    30	lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz.old -> boot/vmlinuz-4.19.0-13-amd64
+
+```
+
+**hacker challenge display the five lines immediately before a line that says `"drwx------    1 root root  724 Mar 20 13:42 root"` using the commands you just learned**
+
+```sh
+mode@debian:~$ nl rootls | grep 724
+    20	drwx------    1 root root  724 Mar 20 13:42 root
+mode@debian:~$ nl rootls
+     1	total 76
+     2	drwxr-xr-x    1 root root  258 Mar 20 11:58 .
+     3	drwxr-xr-x    1 root root  258 Mar 20 11:58 ..
+     ......
+    15	lrwxrwxrwx    1 root root   10 Oct 19 22:53 libx32 -> usr/libx32
+    16	drwxr-xr-x    1 root root   30 Dec 23 17:25 media
+    17	drwxr-xr-x    1 root root    0 Oct 19 22:53 mnt
+    18	drwxr-xr-x    1 root root   92 Jan 25 14:27 opt
+    19	dr-xr-xr-x  425 root root    0 Mar 19 20:04 proc
+    20	drwx------    1 root root  724 Mar 20 13:42 root
+    .......
+    29	lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz -> boot/vmlinuz-4.19.0-14-amd64
+    30	lrwxrwxrwx    1 root root   28 Feb  4 14:05 vmlinuz.old -> boot/vmlinuz-4.19.0-13-amd64
+mode@debian:~$ tail -16 rootls | head -5 
+lrwxrwxrwx    1 root root   10 Oct 19 22:53 libx32 -> usr/libx32
+drwxr-xr-x    1 root root   30 Dec 23 17:25 media
+drwxr-xr-x    1 root root    0 Oct 19 22:53 mnt
+drwxr-xr-x    1 root root   92 Jan 25 14:27 opt
+dr-xr-xr-x  425 root root    0 Mar 19 20:04 proc
+
+```
+
+Alternatively
+
+```sh
+mode@debian:~$ head -19 rootls | tail -5
+lrwxrwxrwx    1 root root   10 Oct 19 22:53 libx32 -> usr/libx32
+drwxr-xr-x    1 root root   30 Dec 23 17:25 media
+drwxr-xr-x    1 root root    0 Oct 19 22:53 mnt
+drwxr-xr-x    1 root root   92 Jan 25 14:27 opt
+dr-xr-xr-x  425 root root    0 Mar 19 20:04 proc
+```
+
