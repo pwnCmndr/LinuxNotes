@@ -80,7 +80,7 @@ e.g.
 
 Using wildcards `?,[a,b],*` with search options 
 
-```
+```bash
 mode@debian:~$ mkdir testfolder
 mode@debian:~$ find ?der
 find: ‘?der’: No such file or directory
@@ -101,12 +101,13 @@ so any search for `?at` would find `hat, cat, and bat` but not what, because at 
 The `[ ]` wildcard is used to match the characters that appear inside the square brackets. 
 For example, 
 Any search for `[c,b]at` would match `cat and bat` but not hat or what. 
+
 #### Among the most widely used wildcards
 is the asterisk `(* )`, which matches any character(s) of any length,
 from none to an unlimited number of characters. A search for ` *at` , for
 example, would find `cat, hat, what, and bat`.
 
-```
+```bash
 mode@debian:~/testfolder$ touch cat hat bat what
 mode@debian:~/testfolder$ ls [a,b,c]at
 bat  cat
@@ -137,12 +138,12 @@ Man pages are categorized in different sections. The most relevant sections for 
  5: File formats and conventions
 
  8: System administration commands
-``` 
+```
 
 **Updating mandb**
  `#mandb`
- 
- ```
+
+ ```bash
  mode@debian:~/testfolder$ man -k admin
 brctl (8)            - ethernet bridge administration
 gpasswd (1)          - administer /etc/group and /etc/gshadow
@@ -155,8 +156,9 @@ net (8)              - Tool for administration of Samba and remote CIFS servers.
 netkey-tool (1)      - administrative utility for Netkey E4 cards
 samba-tool (8)       - Main Samba administration tool.
 virt-admin (1)       - daemon administration interface
-```
+ ```
 
 #
 
-testing with git add
+### head, tail & nl
+
