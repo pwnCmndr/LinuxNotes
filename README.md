@@ -9,20 +9,24 @@
 
 - ### 2. TEXT MANIPULATION
 
-   - [2.1 Head , tail & nl]
-   - [2.2 Sed]
+   - [2.1 Head , tail & nl](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#head-tail--nl)
+   - [2.2 Sed](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#sed)
    
 - ### 3. NETWORK
 
-   - [3.1 Ifconfig]
-   - [3.2 Dhclient]
-   - [Changing DNS]
-   - [Dig (Domain Info Groper)]
-   - [ssh]
+   - [3.1 Ifconfig](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#ifconfig)
+   - [3.2 Dhclient](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
+   - [Changing DNS](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
+   - [Dig (Domain Info Groper)](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#changing-dns)
+   - [ssh](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dig)
 
 - ### 4. PERMISSIONS
 
-   - 
+   - #### [Chmod & chown]
+   
+   - #### [umask]
+   
+   - #### [SUID]
 
 #
 
@@ -280,8 +284,6 @@ dr-xr-xr-x  425 root root    0 Mar 19 20:04 proc
 
 The sed command lets you search for occurrences of a word or a text pattern and then perform some action on it. sed operates like the Find and Replace function in Windows.  
 
-![image-20210320203958658](/home/mode/.config/Typora/typora-user-images/image-20210320203958658.png)
-
 `$sed s/mysql/MySql/g file1 > file2`  
 
 The `s` command performs the search: you first give the term you are searching for (`mysql`)  and then the term you want to replace it with (`MySQL`)
@@ -338,7 +340,9 @@ Upon a painted ocean.
 
 ### Simultaneous substitution
 `sed -n -e 's/motion/flutter/gip' -e 's/ocean/gutter/gip' demo.txt`
+
 same as above
+
 `sed -n 's/motion/flutter/gip;s/ocean/gutter/gip' demo.txt`
 
 ### Conditional substitution
@@ -354,26 +358,45 @@ week   after week, week   after week,
 
 **Changing ip Addr**
 
-![image-20210320213646864](/home/mode/.config/Typora/typora-user-images/image-20210320213646864.png)
+```sh
+root@kali:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+       inet 192.168.1.100 netmask 255.255.255.0 broadcast 192.162.1.255
+       inet6 fe80::20c:29ff:fe**:**** prefixlen 64 scopeid 0x20<link>
+```
 
-![7e598ca03d8da2e441accc6fb39891f8.png](file:///home/mode/.config/joplin-desktop/resources/38c46491444344638ded2fa415ff10cf.png?t=1600833654800)
+```sh
+root@kali:~# ifconfig eth0 192.168.1.109
+root@kali:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+       inet 192.168.1.109 netmask 255.255.255.0 broadcast 192.162.1.255
+       inet6 fe80::20c:29ff:fe**:**** prefixlen 64 scopeid 0x20<link>
+```
+
+
 
 **Changing Your Network Mask and Broadcast Address**
 
-![image-20210320213814835](/home/mode/.config/Typora/typora-user-images/image-20210320213814835.png)
+```sh
+root@kali:~# ifconfig eth0 192.168.1.100 netmask 255.255.0.0 broadcast 192.168.1.210
+root@kali:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+       inet 192.168.1.109 netmask 255.255.255.0 broadcast 192.162.1.255
+       inet6 fe80::20c:29ff:fe**:**** prefixlen 64 scopeid 0x20<link>
+       ether **:**:**:**:**:**:** txqueuelen 1000 (Ethernet)
+       RX packets 1377306 bytes 2002046786 (1.8 GiB)
+```
 
 **Spoofing Your MAC Address**
 Changing your MAC address to spoof a different MAC address is
-almost trivial and neutralizes those security measures. Thus, it’s a very useful technique
+almost trivial and neutralises those security measures. Thus, it’s a very useful technique
 for bypassing network access controls.
 
-```
+```sh
 $ifconfig eth0 down  
 $ifconfig eth0 hw ether 00:11:22:33:44:55 // spoffed mac address  
 $ifconfig eth0 up  
 ```
-
-![bea89947e0f782efa48e7423d55fa03a.png](file:///home/mode/.config/joplin-desktop/resources/18e372a96cf94d24b6167cb53c0e3232.png?t=1600833693259)
 
 #
 
@@ -387,7 +410,9 @@ Therefore, after setting a static IP address, you must return and get a new DHCP
 
 To request an IP address from DHCP, simply call the DHCP server with the command dhclient followed by the interface you want the address assigned to. Different Linux distributions use different DHCP clients, but Kali is built on Debian, which uses dhclient.
 
-![8a45290b975fa504dec2bc1d45ee0fed.png](file:///home/mode/.config/joplin-desktop/resources/3a0d120f28c2421e842e1e9a4f34d00b.png?t=1600834045392)
+`dhclient eth0`
+
+try `ping` ing to make the process speed up.
 
 #
 
@@ -395,9 +420,14 @@ To request an IP address from DHCP, simply call the DHCP server with the command
 
 In some cases, you may want to use another DNS server. To do so, you’ll edit a plaintext file named `/etc/resolv.conf` on the system.
 
-![30359d264918721dc24626833680db9e.png](file:///home/mode/.config/joplin-desktop/resources/3782101c720047d4b7773bfe4d0b6121.png?t=1600834516118)
+```sh
+root@kali:~# nano /etc/resolv.conf
+```
 
-![3010d15b70ed1ca50c3bddabfdafffeb.png](file:///home/mode/.config/joplin-desktop/resources/431a6b4d93f146cf830c19c681af33ad.png?t=1600834523297)
+```sh
+GNU nano 4.9.2
+nameserver 192.168.1.1
+```
 
 if `nameserver 8.8.8.8` then dns is changed from public to google
 
@@ -446,3 +476,192 @@ dig www.isc.org AAAA +short
 ```
 dig yourdomain.com AXFR
 ```
+
+#
+
+### ssh
+
+## Logging in with SSH key stored file
+
+```
+ssh root@192.168.x.x -i /path/to/id_rsa.txt
+```
+
+> Most of the servers do not permit root login. Hence, you can edit the `sshd config` file and change the `root login to yes` and `restart the SSH service` on the target.
+
+Try to backdoor only a single user such as the root since, **most of the folks won’t log in through the root as default configurations prohibit it.**
+
+#
+
+### chmod & chown
+
+The idea is to put people with similar needs into a group that is granted relevant permissions; then each member of the group
+inherits the group permissions. This is primarily for the ease of administering permissions and, thus, security.
+The root user is part of the root group by default. Each new user on the system must be added to a group in order to inherit the permissions of that group.
+
+```sh
+root@kali:~# ls -l /tmp/bobsfile
+-rw-r--r-- 1 root root 23 May 19 21:05 /tmp/bobsfile
+```
+
+#### Changing Ownership
+
+```sh
+root@kali:~# chown bob /tmp/bobsfile
+root@kali:~# ls -l /tmp/bobsfile
+-rw-r--r-- 1 bob root 23 May 19 21:05 /tmp/bobsfile
+```
+
+
+
+The root group needs access to the hacking tools, whereas the security folk only need access to defensive tools such as an intrusion detection system (IDS). Let’s say the root group downloads and installs a program named newIDS; the root group will need to change the ownership to the security group so the security group can use it at will. To do so, the root group would simply enter the following command:
+
+```
+kali > chgrp security newIDS
+```
+
+This command passes the `security group`  ownership of `newIDS` .
+
+```sh
+root@kali:~# ls -l /tmp/bobsfile
+-rw- r-- r-- 1 bob root 23 May 19 21:05 /tmp/bobsfile
+ ___ ___ ___
+ |   |   |
+ |   |   Others
+ |  Group
+Owner 
+```
+
+## chmod to change permissions
+
+```sh
+root@kali:~# ls -l /tmp/bobsfile
+-rw-r--r-- 1 bob root 23 May 19 21:05 /tmp/bobsfile
+
+root@kali:~# chmod 777 /tmp/bobsfile
+root@kali:~# ls -l /tmp/bobsfile
+-rwxrwxrwx 1 bob root 23 May 19 21:05 /tmp/bobsfile
+
+root@kali:~# chmod 776 /tmp/bobsfile
+root@kali:~# ls -l /tmp/bobsfile
+-rwxrwxrw- 1 bob root 23 May 19 21:05 /tmp/bobsfile
+
+root@kali:~# chmod 644 /tmp/bobsfile
+root@kali:~# ls -l /tmp/bobsfile
+-rw-r--r-- 1 bob root 23 May 19 21:05 /tmp/bobsfile
+```
+
+
+
+## Granting Temporary Root Permissions with SUID
+
+a file that allows users to change their password would need access to the `/etc/shadow` file—the
+file that holds the users’ passwords in Linux—which requires root user privileges in
+order to execute. In such a case, you can temporarily grant the owner’s privileges to
+execute the file by setting the SUID bit on the program.
+Basically, the SUID bit says that any user can execute the file with the permissions of the
+owner but those permissions don’t extend beyond the use of that file.
+To set the SUID bit, enter a 4 before the regular permissions, so a file with a new resulting
+permission of 644 is represented as 4644 when the SUID bit is set.
+
+```
+#chmod 4644 filename
+```
+
+## Granting the Root User’s Group Permissions SGID
+
+**SGID also grants temporary elevated permissions, but it grants the permissions of the file**
+owner’s group, rather than of the file’s owner. This means that, with an SGID bit set,
+someone without execute permission can execute a file if the owner belongs to the
+group that has permission to execute that file.
+The SGID bit works slightly differently when applied to a directory: when the bit is set on
+a directory, ownership of new files created in that directory goes to the directory
+creator’s group, rather than the file creator’s group. This is very useful when a directory
+is shared by multiple users. All users in that group can execute the file(s), not just a
+single user.
+
+The SGID bit is represented as 2 before the regular permissions, so a new file with the
+resulting permissions 644 would be represented as 2644 when the SGID bit is set. Again,
+you would use the chmod command for this—for example,
+
+```
+# chmod2644 filename
+```
+
+#
+
+### umask
+
+SETTING MORE SECURE DEFAULT PERMISSIONS WITH MASKS
+
+You can change the default permissions allocated to files and directories created by each user with the umask (or unmask) method. The umask method represents the permissions you want to remove from the base permissions on a file or directory to make them more secure.
+
+The umask is a three­digit decimal number corresponding to the three permissions digits, but the umask number is subtracted from the permissions number to give the new permissions status. This means that when a new file or directory is created, its permissions are set to the default value minus the value in umask .
+
+```
+New Files         New directories
+  666                 777                   Linux base permissions
+ -022                -022                   umask
+  644                 755                   Resulting permissions
+```
+
+In Kali, as with most Debian systems, the umask is preconfigured to 022, meaning the Kali default is 644 for files and 755 for directories.
+
+The umask value is not universal to all users on the system. Each user can set a personal default umask value for the files and directories in their personal .profile file.
+
+To see the current value when logged on as the user, simply enter the command `umask`.
+
+```sh
+root@kali:~# umask
+0022
+```
+
+With Default umask set to 0022
+
+Changing umask value to 0077
+
+```sh
+root@kali:~# umask 0077
+root@kali:~# umask
+0077
+root@kali:~# touch file && ls -l file
+-rw------- 1 root root 0 May 20 00:57 file
+```
+
+Just created file lacks in permission
+
+#
+
+### SUID
+
+As a hacker, these special permissions can be used to exploit Linux systems through privilege escalation, whereby a regular user gains root or sysadmin privileges and the associated permissions. With root privileges, you can do anything on the system. One way to do this is to exploit the SUID bit. A system administrator or software developer might set the SUID bit on a program to allow that program access to files with root privileges. For instance, scripts that need to change passwords often have the SUID bit set. You, the hacker, can use that permission to gain temporary root privileges and do something malicious, such as get access to the passwords at /etc/shadow.
+
+we want to find files anywhere on the file system, for the root user or other sysadmin, with the permissions 4000 . To do this, we can use the following find command: 
+
+```sh
+# find / -user root -perm -4000
+/usr/bin/chfn
+/usr/bin/chsh
+......
+```
+
+1. find every file under `/`
+2. which are owned by `root`
+3. which have `SUID` permission bit set
+
+```sh
+/usr/bin# ls -l | grep rwsr
+```
+
+To Identify SUID pattern is rwsr
+
+the first set of permissions—for the owner—has an s in place of the x . This is how Linux represents that the SUID bit is set.
+
+This means that anyone who runs the sudo file has the privileges of the root user, which can be a security concern for the sysadmin and a potential attack vector for the hacker. For instance, some applications need to access the /etc/shadow file to successfully complete their tasks. If the attacker can gain control of that application, they can use that application’s access to the passwords on a Linux system.
+
+```sh
+/usr/bin# ls -l | grep rwxr-sr
+```
+
+To Identify SUID pattern is  rwxr-sr-x  valid after rwxr-s                      owner|group|users
+
