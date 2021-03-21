@@ -1,24 +1,23 @@
 # LinuxNotes
 
-- ### 1. FINDING STUFF
-   -  [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
-   -  [1.2 Whereis, locate & which](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#whereis-locate--which)
-   -  [1.3 Grep](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#grep)
-   -  [1.4 Wild Cards](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#wild-cards)
-   -  [1.5 Finding commands with man -k](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#man--k)
+- 1. FINDING STUFF
+     - [1.1 Find](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#find) 
+     - [1.2 Whereis, locate & which](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#whereis-locate--which)
+     - [1.3 Grep](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#grep)
+     - [1.4 Wild Cards](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#wild-cards)
+     - [1.5 Finding commands with man -k](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#man--k)
 
-- ### 2. TEXT MANIPULATION
+-  2. TEXT MANIPULATION
+      - [2.1 Head , tail & nl](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#head-tail--nl)
+      - 2.2 Sed](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#sed)
 
-   - [2.1 Head , tail & nl](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#head-tail--nl)
-   - [2.2 Sed](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#sed)
-   
-- ### 3. NETWORK
+- 3. NETWORK
 
-   - [3.1 Ifconfig](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#ifconfig)
-   - [3.2 Dhclient](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
-   - [Changing DNS](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
-   - [Dig (Domain Info Groper)](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#changing-dns)
-   - [ssh](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dig)
+- [3.1 Ifconfig](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#ifconfig)
+- [3.2 Dhclient](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
+- [Changing DNS](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dhclient)
+- [Dig (Domain Info Groper)](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#changing-dns)
+- [ssh](https://github.com/pwnCmndr/LinuxNotes/blob/main/README.md#dig)
 
 - ### 4. PERMISSIONS
 
