@@ -18,9 +18,9 @@
      - [Dig (Domain Info Groper)](#changing-dns)
      - [ssh](#ssh)
 - 4. PERMISSIONS
-     - [Chmod & chown](#chmod--chown-1)
-     - [umask](#umask-1)
-     - [SUID](suid-1)
+     - [Chmod & chown](#chmod--chown)
+     - [umask](#umask)
+     - [SUID](suid)
 
 #
 
