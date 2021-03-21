@@ -18,15 +18,9 @@
      - [Dig (Domain Info Groper)](#changing-dns)
      - [ssh](#ssh)
 - 4. PERMISSIONS
-     - 
-
-- ### 4. PERMISSIONS
-
-   - #### [Chmod & chown]
-   
-   - #### [umask]
-   
-   - #### [SUID]
+     - [Chmod & chown](#chmod--chown-1)
+     - [umask](#umask-1)
+     - [SUID](suid-1)
 
 #
 
@@ -74,7 +68,6 @@ $ find ~/ -type f -name firefox*
 
 `locate` gives overwhelming results 
 `updatedb` command updates locate results
-
 
 `locate python3`
 
