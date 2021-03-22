@@ -681,19 +681,22 @@ Commonly Used Kill Signals
 ![image](https://user-images.githubusercontent.com/80972502/111946942-7c81aa00-8b02-11eb-88f2-21f2377bd8eb.png)
 
 
-`SIGQUIT 3`  This is known as the core dump. It terminates the process and saves the process information in memory,                    and then it saves this information in the current working directory to a file named core.
+`SIGQUIT 3`  This is known as the core dump. It terminates the process and saves the process information in memory,and then it saves this information in the current working directory to a file named core.
 
 ![image](https://user-images.githubusercontent.com/80972502/111946993-8efbe380-8b02-11eb-9a00-f60ff5c8e64b.png)
 
 
 `SIGTERM 15` This is the Termination (TERM) signal. It is the kill command’s default kill signal. 
+
 ![image](https://user-images.githubusercontent.com/80972502/111947021-a8049480-8b02-11eb-8b5c-0f71becd65a3.png)
 
 
 `SIGKILL 9` This is the absolute kill signal. It forces the process to stop by sending the process’s resources to a special device, /dev/null. 
+
 ![image](https://user-images.githubusercontent.com/80972502/111947059-b5218380-8b02-11eb-9515-09b51e379946.png)
 
 `killall` command
+
 ![image](https://user-images.githubusercontent.com/80972502/111947082-c074af00-8b02-11eb-97ff-f47380e7e55a.png)
 
 
@@ -702,9 +705,13 @@ can use the killall command to kill the process.This command takes the name of t
 Using `top` to kill a process
 
 Press K to enter PID
+
 ![image](https://user-images.githubusercontent.com/80972502/111947140-dedaaa80-8b02-11eb-8820-926ee3b655e7.png)
+
 Send signal to process
+
 ![image](https://user-images.githubusercontent.com/80972502/111947176-eac66c80-8b02-11eb-81af-cf01919a755c.png)
+
 ![image](https://user-images.githubusercontent.com/80972502/111947199-f4e86b00-8b02-11eb-8f8a-46d7df520824.png)
 
 
