@@ -730,5 +730,65 @@ root@kali:~# ps aux | wc
 
 ![image](https://user-images.githubusercontent.com/80972502/111947939-565d0980-8b04-11eb-9564-27efd0a6a8f0.png)
 
+# 
+### at & crond
+
+SCHEDULING PROCESSES
+
+Both Linux system administrators and hackers often need to schedule processes to run at a particular time of day. A system administrator might want to schedule a system backup to run every Saturday night at 2 AM, for example. A hacker might want to set a script to run to perform reconnaissance on a regular basis, finding open ports or vulnerabilities. In Linux, you can accomplish this in at least two ways: with at and crond .
+
+We use the at daemon to schedule the execution of a command or set of commands in the future. The syntax is simply the at command followed by the time to execute the process. The time argument can be provided in various formats.
+
+at 7:20pm Scheduled to run at 7:20 PM on the current day at 7:20pm June 25 Scheduled to run at 7:20 PM on June 25 at noon Scheduled to run at noon on the current day at noon June 25 Scheduled to run at noon on June 25 at tomorrow Scheduled to run tomorrow at now + 20 minutes Scheduled to run in 20 minutes from the current time at now + 10 hours Scheduled to run in 10 hours from the current time at now + 5 days Scheduled to run in five days from the current date at now + 3 weeks Scheduled to run in three weeks from the current date at 7:20pm 06/25/2019 Scheduled to run at 7:20 PM on June 25, 2019
+
+![image](https://user-images.githubusercontent.com/80972502/111948116-ab991b00-8b04-11eb-9339-3784b1b4272f.png)
+
+![image](https://user-images.githubusercontent.com/80972502/111948151-b9e73700-8b04-11eb-9848-9d6ea19d7e94.png)
+
+To start the cron service, use: $ sudo service cron start
+
+To stop the cron service, use: $ sudo service cron stop
+
+To restart the cron service, use: 
+
+`# /etc/init.d/cron restart` 
+
+OR `$ sudo /etc/init.d/cron restart` 
+
+OR `$ sudo service cron restart`
+
+![image](https://user-images.githubusercontent.com/80972502/111948319-fc107880-8b04-11eb-900b-d7fc825fc563.png)
+
+**ADDING CRON JOB**
+
+```sh
+SYNTAX:
+$   1  2  3  4   5    /path/to/command arg1 arg2
+  
+         OR
+
+ #  1 2 3 4 5 /root/backup.sh
+ ```
+![image](https://user-images.githubusercontent.com/80972502/111948475-39750600-8b05-11eb-9b72-e220495af221.png)
+
+Example: Run backup cron job script, If you wished to have a script named `/root/backup.sh` run every day at `3am`, your crontab entry would look like as follows. First, install your cronjob by running the following command:
+
+`crontab -e` // use an editor by selecting a number 1. nano
+
+Append the following entry:
+
+```
+0 3 * * * /root/backup.sh
+```
+![image](https://user-images.githubusercontent.com/80972502/111948980-ebaccd80-8b05-11eb-97ab-d3b171570975.png)
+
+![image](https://user-images.githubusercontent.com/80972502/111949007-f5363580-8b05-11eb-87d4-aac41ccc81b0.png)
+
+![image](https://user-images.githubusercontent.com/80972502/111949023-fe270700-8b05-11eb-8449-613a53612dc8.png)
+
+![image](https://user-images.githubusercontent.com/80972502/111949046-08490580-8b06-11eb-8957-08c9e7a6fad2.png)
+
+![image](https://user-images.githubusercontent.com/80972502/111949062-1008aa00-8b06-11eb-8c03-ec34d575d7ec.png)
+
 
 
