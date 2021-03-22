@@ -714,6 +714,21 @@ Send signal to process
 
 ![image](https://user-images.githubusercontent.com/80972502/111947199-f4e86b00-8b02-11eb-8f8a-46d7df520824.png)
 
+#
+### ps
+Running the `ps` command with the options aux will **show all processes running on the system for all users** 
+
+![image](https://user-images.githubusercontent.com/80972502/111947614-d9319480-8b03-11eb-89e1-1eecdf7c5b65.png)
+
+**Number of process running **
+
+```sh
+root@kali:~# ps aux | wc
+    141  1629  12781 // 141 is number of processes
+```
+**Filtering Process**
+
+![image](https://user-images.githubusercontent.com/80972502/111947939-565d0980-8b04-11eb-9564-27efd0a6a8f0.png)
 
 
 
