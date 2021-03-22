@@ -664,7 +664,7 @@ This means that anyone who runs the sudo file has the privileges of the root use
 To Identify SUID pattern is  rwxr-sr-x  valid after rwxr-s                      owner|group|users
 
 #
-### nice & renice
+### kill
 Killing A Process
 
 At times, a process will consume way too many system resources, exhibit unusual behavior, or—at worst—freeze. A process that exhibits this type of behavior is often referred to as a zombie process. When you identify a problematic process, you may want to stop it with the kill command.
@@ -673,27 +673,40 @@ Commonly Used Kill Signals
 
 `SIGHUP 1`   This is known as the Hangup(HUP) signal.It stops the designated process & restarts it with the same PID. 
 
+![image](https://user-images.githubusercontent.com/80972502/111946911-6ffd5180-8b02-11eb-9da5-b522563ccaeb.png)
+
 
 `SIGINT 2`    This is the Interrupt (INT) signal. It is a weak kill signal that isn’t guaranteed to work, but it works in most cases.
 
+![image](https://user-images.githubusercontent.com/80972502/111946942-7c81aa00-8b02-11eb-88f2-21f2377bd8eb.png)
 
 
 `SIGQUIT 3`  This is known as the core dump. It terminates the process and saves the process information in memory,                    and then it saves this information in the current working directory to a file named core.
 
+![image](https://user-images.githubusercontent.com/80972502/111946993-8efbe380-8b02-11eb-9a00-f60ff5c8e64b.png)
 
 
 `SIGTERM 15` This is the Termination (TERM) signal. It is the kill command’s default kill signal. 
+![image](https://user-images.githubusercontent.com/80972502/111947021-a8049480-8b02-11eb-8b5c-0f71becd65a3.png)
+
 
 `SIGKILL 9` This is the absolute kill signal. It forces the process to stop by sending the process’s resources to a special device, /dev/null. 
+![image](https://user-images.githubusercontent.com/80972502/111947059-b5218380-8b02-11eb-9515-09b51e379946.png)
 
 `killall` command
+![image](https://user-images.githubusercontent.com/80972502/111947082-c074af00-8b02-11eb-97ff-f47380e7e55a.png)
+
 
 can use the killall command to kill the process.This command takes the name of the process, instead of the PID, as an argument.
 
-
-Using top to kill a process
+Using `top` to kill a process
 
 Press K to enter PID
-
+![image](https://user-images.githubusercontent.com/80972502/111947140-dedaaa80-8b02-11eb-8820-926ee3b655e7.png)
 Send signal to process
+![image](https://user-images.githubusercontent.com/80972502/111947176-eac66c80-8b02-11eb-81af-cf01919a755c.png)
+![image](https://user-images.githubusercontent.com/80972502/111947199-f4e86b00-8b02-11eb-8f8a-46d7df520824.png)
+
+
+
 
